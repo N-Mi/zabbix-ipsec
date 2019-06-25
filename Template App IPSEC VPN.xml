@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>3.2</version>
-    <date>2017-08-09T10:45:48Z</date>
+    <version>3.0</version>
+    <date>2019-06-24T10:45:48Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -280,67 +280,43 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{Template App IPSEC VPN:ipsec.tunnel[{#TARGETIP},{#SOURCEIP},rtt].last()}&gt;={#RTT_TIME_ERR}</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
                             <name>Tunnel {#TUNNEL} endpoint {#TARGETIP} ({ITEM.LASTVALUE})</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
-                            <manual_close>0</manual_close>
                             <dependencies/>
-                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App IPSEC VPN:ipsec.tunnel[{#TARGETIP},{#SOURCEIP},rtt].last()}&gt;={#RTT_TIME_WARN} and {Template App IPSEC VPN:ipsec.tunnel[{#TARGETIP},{#SOURCEIP},rtt].last()}&lt;{#RTT_TIME_ERR}</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
                             <name>Tunnel {#TUNNEL} endpoint {#TARGETIP} ({ITEM.LASTVALUE})</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
-                            <manual_close>0</manual_close>
                             <dependencies/>
-                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App IPSEC VPN:ipsec.tunnel[{#TARGETIP},{#SOURCEIP}].last()}=0</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
                             <name>Tunnel {#TUNNEL} endpoint {#TARGETIP} not reachable</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
-                            <manual_close>0</manual_close>
                             <dependencies/>
-                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App IPSEC VPN:ipsec.tunnel[{#TUNNEL}].last()}=0</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
                             <name>Tunnel {#TUNNEL} is down</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
-                            <manual_close>0</manual_close>
                             <dependencies/>
-                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -404,7 +380,6 @@
                     <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
-            <httptests/>
             <macros/>
             <templates/>
             <screens/>
@@ -413,19 +388,13 @@
     <triggers>
         <trigger>
             <expression>{Template App IPSEC VPN:proc.num[pluto].last()}&lt;1 and {Template App IPSEC VPN:proc.num[charon].last()}&lt;1</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
             <name>IPSEC daemon not running on {HOST.NAME}</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
-            <manual_close>0</manual_close>
             <dependencies/>
-            <tags/>
         </trigger>
     </triggers>
 </zabbix_export>
